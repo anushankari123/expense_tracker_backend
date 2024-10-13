@@ -5,7 +5,6 @@ from .base import IdMixin, TimestampMixin, SoftDeleteMixin, BaseModel
 class BudgetBase(SQLModel):
     amount: int = Field(..., description="Budget amount")
     category: str = Field(..., description="Category of the budget", sa_type=AutoString)
-    user_id: UUID = Field(..., description="User ID to whom the budget belongs")
 
 class Budget(BaseModel, BudgetBase, IdMixin, TimestampMixin, SoftDeleteMixin, table=True):
     __tablename__ = "budgets"
